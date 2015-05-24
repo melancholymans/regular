@@ -11,3 +11,11 @@ struct Inst{
 	Inst *x;
 	Inst *y;
 };
+
+struct Thread{
+	Inst *pc;
+	char *sp;
+};
+
+enum{ MAXTHREAD = 1000 };
+Thread ready[MAXTHREAD];

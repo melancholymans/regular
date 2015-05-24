@@ -2,6 +2,23 @@
 #include <stdio.h>
 #include "reg.h"
 
+
+Thread thread(Inst *pc, char *sp)
+{
+	ready[]
+}
+
+//非再帰的な実装
+int backtraackingvm(Inst *prog, char *input)
+{
+	int nready;
+	Inst *pc;
+	char *sp;
+
+	ready[0] = thread(prog, input);
+	return 0;
+}
+
 //ループと再帰を組み合わせた実装
 int recursiveloop(Inst *pc, char *sp)
 {
