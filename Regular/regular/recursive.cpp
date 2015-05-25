@@ -3,19 +3,41 @@
 #include "reg.h"
 
 
-Thread thread(Inst *pc, char *sp)
+Thread thread(Thread* th,Inst *pc, char *sp)
 {
-	ready[]
+	th->pc = pc;
+	th->sp = sp;
 }
 
 //”ñÄ‹A“I‚ÈŽÀ‘•
 int backtraackingvm(Inst *prog, char *input)
 {
+	enum{ MAXTHREAD = 1000 };
+	Thread ready[MAXTHREAD];
 	int nready;
 	Inst *pc;
 	char *sp;
 
-	ready[0] = thread(prog, input);
+	thread(&ready[0],prog, input);
+	nready = 1;
+	while (nready > 0){
+		--nready;
+		pc = ready[nready].pc;
+		sp = ready[nready].sp;
+		for (;;){
+			switch (pc->opcode){
+			case Char:
+				if (*sp != pc->c){
+					goto Dead;
+				}
+				pc++;
+				sp++;
+				continue;
+
+			}	//switch end
+		}	//for end
+		Dead:
+	}//while end
 	return 0;
 }
 

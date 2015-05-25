@@ -17,5 +17,3 @@ struct Thread{
 	char *sp;
 };
 
-enum{ MAXTHREAD = 1000 };
-Thread ready[MAXTHREAD];
